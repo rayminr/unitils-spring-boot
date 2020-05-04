@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.unitils.spring.boot.autoconfigure.UnitilsAutoConfiguration,\
+  org.unitils.spring.boot.autoconfigure.UnitilsDataSourceAutoConfiguration
