@@ -11,6 +11,11 @@ import org.springframework.util.Assert;
 
 import java.util.function.Supplier;
 
+/**
+ * 重写了AnnotationConfigApplicationContext，构造方法中不进行refresh，否则在unitils框架中会因为重复refresh报错
+ * @Author: rayminr
+ * @Date:Created in 2020-05-03
+ */
 public class SpringBootAnnotationConfigApplicationContext extends GenericApplicationContext implements AnnotationConfigRegistry {
     private final AnnotatedBeanDefinitionReader reader;
     private final ClassPathBeanDefinitionScanner scanner;

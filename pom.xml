@@ -24,8 +24,9 @@
         <spring.version>5.2.5.RELEASE</spring.version>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <mysql-connector-java.version>5.1.46</mysql-connector-java.version>
-        <mybatis-generator-maven-plugi.version>1.4.0</mybatis-generator-maven-plugi.version>
-        <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.4</mybatis.version>
+        <mybatis-spring.version>1.3.2</mybatis-spring.version>
+        <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
         <unitils.version>3.4.6</unitils.version>
         <unitils-spring-boot-starter.version>1.0.0-SNAPSHOT</unitils-spring-boot-starter.version>
         <mybatis-generator-maven-plugin.version>1.4.0</mybatis-generator-maven-plugin.version>

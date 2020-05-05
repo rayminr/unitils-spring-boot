@@ -43,7 +43,6 @@
             <groupId>org.unitils</groupId>
             <artifactId>unitils-spring-boot-starter</artifactId>
             <version>${unitils-spring-boot-starter.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
