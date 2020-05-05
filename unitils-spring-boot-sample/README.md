@@ -1,4 +1,7 @@
 # 单元测试框架Unitls for spring boot版本使用方式说明
+1）支持注解方式
+2）支持多数据库、多schema
+
 
 
 mabits逆向工程配置文件路径如下：

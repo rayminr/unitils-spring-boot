@@ -14,14 +14,14 @@ class UnitilsSpringBootSampleApplicationTests {
 
     @Test
     void contextLoads() {
-        String name = sampleController.getValue(1);
+        String name = sampleController.getDbValue(1);
         Assert.assertNotNull(name);
         //System.out.println("=================  " + name);
     }
 
     @Test
     public void test_msg(){
-        String name = sampleController.getValue();
+        String name = sampleController.getProMsg();
         Assert.assertNotNull(name);
         Assert.assertTrue("spring boot starter".equals(name));
     }
