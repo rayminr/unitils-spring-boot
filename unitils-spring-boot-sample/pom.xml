@@ -15,8 +15,8 @@
     <description>Unitils for Spring Boot sample</description>
 
     <properties>
-        <mybatis.generator.configfile>${basedir}/db/mybatis/generatorConfig-test1.xml</mybatis.generator.configfile>
-        <mybatis.generator.properties>${basedir}/db/mybatis/mybatis-generator-test1.properties</mybatis.generator.properties>
+        <mybatis.generator.configfile>${basedir}/db/mybatis/generatorConfig-demo2.xml</mybatis.generator.configfile>
+        <mybatis.generator.properties>${basedir}/db/mybatis/mybatis-generator-demo2.properties</mybatis.generator.properties>
     </properties>
 
     <dependencies>

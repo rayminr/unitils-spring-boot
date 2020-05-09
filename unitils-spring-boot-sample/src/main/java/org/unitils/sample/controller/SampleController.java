@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.unitils.sample.test1.model.Sample;
-import org.unitils.sample.test1.service.SampleService;
-import org.unitils.sample.test2.model.Msg;
-import org.unitils.sample.test2.service.MsgService;
+import org.unitils.sample.demo1.model.Sample;
+import org.unitils.sample.demo1.service.SampleService;
+import org.unitils.sample.demo2.model.Msg;
+import org.unitils.sample.demo2.service.MsgService;
 import org.unitils.spring.boot.autoconfigure.DemoService;
 
 @RestController

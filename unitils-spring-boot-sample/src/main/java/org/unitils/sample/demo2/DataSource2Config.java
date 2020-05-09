@@ -1,5 +1,6 @@
-package org.unitils.sample.test1;
+package org.unitils.sample.demo2;
 
+import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,37 +13,32 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
-import org.unitils.database.UnitilsDataSourceFactoryBean;
 
 import javax.sql.DataSource;
 
 @Configuration
 @EnableConfigurationProperties({MybatisProperties.class})
-@MapperScan(basePackages= {"org.unitils.sample.test1"}, sqlSessionFactoryRef="test1SqlSessionFactory")
-public class DataSource1Config {
+@MapperScan(basePackages= {"org.unitils.sample.demo2"}, sqlSessionFactoryRef="sqlSessionFactory2")
+public class DataSource2Config {
 
     @Autowired
     private MybatisProperties properties;
 
-    @Bean(name="test1DataSource")//注入到这个容器
-    @ConfigurationProperties(prefix="spring.datasource.test1") //表示取application.properties配置文件中的前缀
-    @Primary //primary是设置优先，因为有多个数据源，在没有明确指定用哪个的情况下，会用带有primary的，这个注解必须有一个数据源要添加
-    public DataSource testDataSource() throws Exception {
+    @Bean(name="dataSource2")//注入到这个容器
+    @ConfigurationProperties(prefix="spring.datasource.demo2") //表示取application.properties配置文件中的前缀
+    public DataSource dataSource() throws Exception {
         return DataSourceBuilder.create().build();
-        //return (DataSource)(new UnitilsDataSourceFactoryBean().getObject());
     }
 
-    @Bean(name="test1SqlSessionFactory")
-    @Primary
+    @Bean(name="sqlSessionFactory2")
     //@Qualifier("xxx")的含义是告诉他使用哪个DataSource
-    @ConfigurationProperties(prefix="mybatis")
-    public SqlSessionFactory testSqlSessionFactory(@Qualifier("test1DataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean bean=new SqlSessionFactoryBean();
+    @ConfigurationProperties(prefix="demo2.mybatis")
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         if (StringUtils.hasText(this.properties.getConfigLocation())) {
             bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource(this.properties.getConfigLocation()));
@@ -53,15 +49,14 @@ public class DataSource1Config {
         return bean.getObject();
     }
 
-    @Bean(name="test1SqlSessionTemplate")
-    @Primary
-    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("test1SqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
+    @Bean(name="sqlSessionTemplate2")
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("sqlSessionFactory2") SqlSessionFactory sqlSessionFactory) {
+        ExecutorType executorType = this.properties.getExecutorType();
+        return executorType != null ? new SqlSessionTemplate(sqlSessionFactory, executorType) : new SqlSessionTemplate(sqlSessionFactory);
     }
 
-    @Bean(name="test1TransactionManager")//配置事务
-    @Primary
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("test1DataSource") DataSource dataSource) {
+    @Bean(name="transactionManager2")//配置事务
+    public DataSourceTransactionManager transactionManager(@Qualifier("dataSource2") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 

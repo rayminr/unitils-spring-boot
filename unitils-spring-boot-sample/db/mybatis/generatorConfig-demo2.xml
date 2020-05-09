@@ -64,7 +64,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="msg_tb" tableName="msg_tb" domainObjectName="Msg" enableSelectByPrimaryKey="true" enableDeleteByExample="false">
+        <table schema="demo2" tableName="msg_tb" domainObjectName="Msg" enableSelectByPrimaryKey="true" enableDeleteByExample="false">
             <property name="constructorBased" value="false"/>
             <property name="ignoreQualifiersAtRuntime" value="false"/>
             <property name="immutable" value="false"/>

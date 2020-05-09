@@ -1,9 +1,9 @@
-package org.unitils.sample.test1.service;
+package org.unitils.sample.demo1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.unitils.sample.test1.mapper.SampleMapper;
-import org.unitils.sample.test1.model.Sample;
+import org.unitils.sample.demo1.mapper.SampleMapper;
+import org.unitils.sample.demo1.model.Sample;
 
 
 @Service

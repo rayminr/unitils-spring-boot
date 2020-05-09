@@ -9,8 +9,8 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.DataSets;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSets;
-import org.unitils.sample.test1.model.Sample;
-import org.unitils.sample.test2.model.Msg;
+import org.unitils.sample.demo1.model.Sample;
+import org.unitils.sample.demo2.model.Msg;
 
 
 /**

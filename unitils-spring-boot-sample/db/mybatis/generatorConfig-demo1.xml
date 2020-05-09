@@ -252,7 +252,7 @@
           -->
         <!-- </table> -->
 
-        <table schema="unitlis_sample" tableName="sample_tb" domainObjectName="Sample" enableSelectByPrimaryKey="true" enableDeleteByExample="false">
+        <table schema="demo1" tableName="sample_tb" domainObjectName="Sample" enableSelectByPrimaryKey="true" enableDeleteByExample="false">
             <property name="constructorBased" value="false"/>
             <property name="ignoreQualifiersAtRuntime" value="false"/>
             <property name="immutable" value="false"/>
