@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.unitils.UnitilsBlockJUnit4ClassRunner;
 import org.unitils.database.annotations.TestDataSource;
 import org.unitils.database.annotations.Transactional;
-import org.unitils.database.util.TransactionMode;
 import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.sample.controller.SampleController;
 import org.unitils.sample.demo1.service.SampleService;
@@ -22,7 +21,6 @@ import javax.sql.DataSource;
  * 2）xml配置文件，unitils.properties中默认ClassPathXmlApplicationContextFactory，无需特别指定
  */
 @RunWith(UnitilsBlockJUnit4ClassRunner.class)
-//@Transactional(TransactionMode.ROLLBACK)
 @SpringApplicationContext({"org.unitils"})
 //@SpringApplicationContext({"applicationContext-test.xml"})
 public class BaseTest {
@@ -47,6 +45,7 @@ public class BaseTest {
 
     @Test
     @DataSet(databaseName="database1", value = {"/data/getValue.xls"})
+    @Transactional(transactionManagerName="transactionManager1")
     public void test_getValue(){
         String name = sampleController.getDbValue(1);
         Assert.assertNotNull(name);
@@ -55,18 +54,12 @@ public class BaseTest {
 
     @Test
     @DataSet(databaseName="database2", value = {"/data/testMutiDataSetsDb2.xls"})
-    //@Transactional(TransactionMode.ROLLBACK)
+    @Transactional(transactionManagerName="transactionManager2")
     public void test_getMsg(){
         String name = sampleController.getDbMsg(1000);
         Assert.assertNotNull(name);
         Assert.assertTrue("成功".equals(name));
     }
 
-    @Test
-    public void test_msg(){
-        String name = sampleController.getProMsg();
-        Assert.assertNotNull(name);
-        Assert.assertTrue("spring boot starter".equals(name));
-    }
 
 }

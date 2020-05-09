@@ -1,3 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  org.unitils.spring.boot.autoconfigure.DemoAutoConfiguration,\
-  org.unitils.spring.boot.autoconfigure.UnitilsAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.unitils.spring.boot.autoconfigure.UnitilsAutoConfiguration

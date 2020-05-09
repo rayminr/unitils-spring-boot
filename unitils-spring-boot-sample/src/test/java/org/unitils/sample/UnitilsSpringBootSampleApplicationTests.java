@@ -19,11 +19,5 @@ class UnitilsSpringBootSampleApplicationTests {
         //System.out.println("=================  " + name);
     }
 
-    @Test
-    public void test_msg(){
-        String name = sampleController.getProMsg();
-        Assert.assertNotNull(name);
-        Assert.assertTrue("spring boot starter".equals(name));
-    }
 
 }
